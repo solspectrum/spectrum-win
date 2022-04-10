@@ -20,6 +20,8 @@
 ### TODO
 
 - Cross platform application
-- Confidential transactions
+- [Confidential](https://github.com/solana-labs/solana-program-library/tree/master/token/program-2022/src/extension/confidential_transfer) transactions
+- Account control: select account(s) for doing transaction
+- Labels for addresses and transactions
 
 ℹ️ This project is still in early phase and a proof of concept. Please do not use it for mainnet transactions. Feel free to create issues or pull requests for contributing.
