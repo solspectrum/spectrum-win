@@ -1,0 +1,103 @@
+﻿<Window x:Class="Spectrum.Account"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spectrum"
+        mc:Ignorable="d"
+        Title="Account" Height="450" Width="800">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="RedBrush" Color="Red"/>
+
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+
+        <SolidColorBrush x:Key="GreenBrush" Color="Green" />
+
+        <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+
+        <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+                                Name="Border"
+                                Margin="0,0,-4,0" 
+                                Background="{StaticResource RedBrush}"
+                                BorderBrush="{StaticResource  SolidBorderBrush}" 
+                                BorderThickness="1,1,1,1" 
+                                CornerRadius="2,12,0,0" >
+                                <ContentPresenter x:Name="ContentSite"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    ContentSource="Header"
+                                    Margin="12,2,12,2"
+                                    RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource GreenBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBorderBrush}" />
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="619*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl RenderTransformOrigin="0.5,0.5" Margin="33,5,397,7" Grid.ColumnSpan="2" BorderBrush="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}">
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.295"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+            <TabItem Header="Addresses" Selector.Selected="OnTabSelected" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="White">
+                <ListBox x:Name="AddressList" 
+                 d:ItemsSource="{d:SampleData ItemCount=10}" Grid.ColumnSpan="2" Height="390" Margin="0,0,-1,0" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="White" BorderBrush="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" SelectionChanged="AddressList_SelectionChanged">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="Height" Value="50" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </TabItem>
+            <TabItem Header="Transactions" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="White" BorderBrush="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}">
+                <RichTextBox x:Name="TxBox" Margin="0,0,0,0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="White">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="RichTextBox"/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </TabItem>
+        </TabControl>
+        <Label x:Name="balance_label" Grid.Column="1" Content="balance" HorizontalAlignment="Left" Margin="260,332,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="White" FontSize="36" Height="83" Width="332"/>
+        <Image x:Name="qr" Grid.Column="1" HorizontalAlignment="Left" Height="232" Margin="271,67,0,0" VerticalAlignment="Top" Width="228"/>
+
+
+
+
+    </Grid>
+</Window>

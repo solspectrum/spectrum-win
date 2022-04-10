@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <StartupObject>Spectrum.App</StartupObject>
+    <FileVersion>0.1.0</FileVersion>
+    <RepositoryUrl>https://github.com/solspectrum/spectrum-win</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SplashScreen1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="SplashScreen1.png" />
+  </ItemGroup>
+
+</Project>

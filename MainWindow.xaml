@@ -1,0 +1,22 @@
+﻿<Window x:Class="Spectrum.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spectrum"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}">
+        <Button x:Name="DeriveAddresses" Content="Open" HorizontalAlignment="Left" Margin="357,0,0,0" VerticalAlignment="Center" Height="30" Width="128" Click="DeriveAddresses_Click" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="White"/>
+        <RichTextBox x:Name="seed_words" Margin="198,70,150,269" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="White">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <TextBox HorizontalAlignment="Left" Margin="310,364,0,0" TextWrapping="Wrap" Text="C:\Users\%UserProfile%\.local\share\solana\install\releases" VerticalAlignment="Top" Width="340"/>
+        <Label Content="Solana CLI binary path :" HorizontalAlignment="Left" Margin="176,359,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+    </Grid>
+</Window>
